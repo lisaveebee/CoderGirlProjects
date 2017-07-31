@@ -55,7 +55,7 @@ public class SandwichShop
         }
         
         out.println("");
-        if (soldVeggies >= goalForVeggies & soldBurgers >= goalForBurgers & soldSubs >= goalForSubs & soldSoups >= goalForSoup) {
+        if (soldVeggies >= goalForVeggies && soldBurgers >= goalForBurgers && soldSubs >= goalForSubs && soldSoups >= goalForSoup) {
             out.println("Made goal for everything!");
         }
         else {
