@@ -1,0 +1,25 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class MultiplicationTables
+{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        out.println("Enter a number less than 20:");
+        int x = keyboard.nextInt();
+        int y = x;
+        if (x<=20)
+        {
+            for(int z=0; z<=x; z++)
+            {
+                for (int zz=0; zz<=x; zz++)
+                {
+                    out.println(z + " * " + zz + " = " + z*zz);
+                }
+            }
+        }
+        else {out.println("invalid number.");}
+        
+    }
+}
