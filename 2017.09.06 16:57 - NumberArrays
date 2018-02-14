@@ -1,0 +1,97 @@
+import static java.lang.System.out;
+
+public class NumberArrays
+{
+    public static void main(String[] args)
+    {
+        int w1hiTemps[] = {93,93,84,79,81,80,84}; //Temps from St. Louis, MO August 20, 2017 to August 27, 2017
+        int w1LoTemps[] = {74,78,66,59,60,62,61}; //Temps from same week as directly above
+        int w2hiTemps[] = {87,83,83,83,80,77,80}; //Temps from St. Louis, MO August 27, 2017 to September 2, 2017
+        int w2LoTemps[] = {64,67,64,63,65,60,52}; //Temps from same week as directly above
+        int sum1hi = 0;
+        int sum1Lo = 0;
+        int sum2hi = 0;
+        int sum2Lo = 0;
+        String daysOfWeek[] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+        out.println("Week 1 High Temperatures");
+        out.println("93, 93, 84, 79, 81, 80, 84");
+        out.println();
+        out.println("Week 1 Low Temperatures");
+        out.println("74, 78, 66, 59, 60, 62, 61");
+        out.println();
+        out.println("Week 2 High Temperatures");
+        out.println("87, 83, 83, 83, 80, 77, 80");
+        out.println();
+        out.println("Week 2 Low Temperatures");
+        out.println("64, 67, 64, 63, 65, 60, 52");
+        out.println();
+        for (int x=0; x<7; x++)
+        {
+            sum1hi += w1hiTemps[x];
+            sum1Lo += w1LoTemps[x];
+            sum2hi += w2hiTemps[x];
+            sum2Lo += w2LoTemps[x];
+        }
+        double w1HiAvg = sum1hi/(int)w1hiTemps.length;
+        double w1LoAvg = sum1Lo/(int)w1LoTemps.length;
+        double w2HiAvg = sum2hi/(int)w2hiTemps.length;
+        double w2LoAvg = sum2Lo/(int)w2LoTemps.length;
+        out.println("The average daily-high temperature for Week 1 is " + w1HiAvg + " degrees.");
+        out.println("The average daily-low temperature for Week 1 is " + w1LoAvg + " degrees.");
+        out.println();
+        out.println("The average daily-high temperature for Week 2 is " + w2HiAvg + " degrees.");
+        out.println("The average daily-low temperature for Week 2 is " + w2LoAvg + " degrees.");
+        
+        out.println();
+        
+        int w1hi = w1hiTemps[0];
+        String w1HottestDay = daysOfWeek[0];
+        for (int x=1; x<=w1hiTemps.length; x++)
+        {
+            if (w1hiTemps[x] > w1hi)
+            {
+                w1hi = w1hiTemps[x];
+                w1HottestDay = daysOfWeek[x];
+            }
+        }
+        out.println("In week 1, " + w1HottestDay + " had the highest recorded temperature of " + w1hi + " degrees.");
+        
+        int w1Lo = w1LoTemps[0];
+        String w1CoolestDay = daysOfWeek[0];
+        for (int x=1; x<w1LoTemps.length; x++)
+        {
+            if (w1LoTemps[x] < w1Lo)
+            {
+                w1Lo = w1LoTemps[x];
+                w1CoolestDay = daysOfWeek[x];
+            }
+        }
+        out.println("In Week 1, " + w1CoolestDay + " had the lowest recorded temperature of " + w1Lo + " degrees.");
+        
+        out.println();
+        
+        int w2hi = w2hiTemps[0];
+        String w2HottestDay = daysOfWeek[0];
+        for(int x=0; x<w2hiTemps.length; x++)
+        {
+            if (w2hiTemps[x] > w2hi)
+            {
+                w2hi = w2hiTemps[x];
+                w2HottestDay = daysOfWeek[x];
+            }
+        }
+        out.println("In week 2, " + w2HottestDay + " had the highest recorded temperature of " + w2hi + " degrees.");
+        
+        int w2Lo = w2LoTemps[0];
+        String w2CoolestDay = daysOfWeek[0];
+        for (int x=0; x<w2LoTemps.length; x++)
+        {
+            if (w2LoTemps[x]<w2Lo)
+            {
+                w2Lo = w2LoTemps[x];
+                w2CoolestDay = daysOfWeek[x];
+            }
+        }
+        out.println("In Week 2, " + w2CoolestDay + " had the lowest recorded temperature of " + w2Lo + " degrees.");
+    }
+}
