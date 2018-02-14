@@ -1,0 +1,31 @@
+import static java.lang.System.out;
+public class AsciiLectureExample
+{
+    public static void main(String[] args)
+    {
+        int nums[] = {67,97,116,115,32,97,114,101,32,102,117,114,114,121,33};
+        for (int x = 0; x < nums.length; x++)
+        {
+            char letter = (char) nums[x];
+            out.print(letter);
+        }
+        System.out.println();
+        out.print((char) nums[0]);
+        for (int x=1; x<=3; x++)
+        {
+            out.print((char) (nums[x]-32));
+        }
+        out.print((char)nums[4]);
+        for (int x=5; x<=7; x++)
+        {
+            out.print((char) (nums[x]-32));
+        }
+        out.print((char)nums[8]);
+        for (int x=9; x<=(13); x++)
+        {
+            out.print((char) (nums[x]-32));
+        }
+        out.print((char)nums[14]);
+        out.println();
+    }
+}
