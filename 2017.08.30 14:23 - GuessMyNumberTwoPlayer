@@ -1,0 +1,126 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+import java.util.Random;
+public class GuessMyNumberTwoPlayer
+{ 
+    public static boolean player(int x)
+    {
+        if (x % 2 == 0){return true;} //player1
+        else {return false;}//player2
+    }
+    public static void gameOver1()
+    {
+        out.println();
+        out.println("Game OVER!");
+        out.println("Your mothers were hamsters and your fathers smelt of elderberries!!");                
+    }
+    public static void gameOver2()
+    {
+        out.println();
+        out.println("Play again?");
+    }
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        int guess = 0;
+        int turns = 0;
+        Random x = new Random(100);
+        out.println("Would you like to play a game? (Enter yes or no)");
+        String play = keyboard.nextLine();
+        while (play.equals("yes"))
+        {
+            out.println();
+            out.println("What is player 1's name?");
+            String player1 = keyboard.nextLine();
+            out.println("What is player 2's name?");
+            String player2 = keyboard.nextLine();
+            out.println();
+            out.println("I'm thinking of a number between 1 and 100. What do you think it is?");
+            int y = x.nextInt(100);
+            int guessCount = 0;
+            int player1GuessCount = 0;
+            int player2GuessCount = 0;
+            while (guess != y) 
+            {
+                if (player(guessCount))
+                {
+                    out.println();
+                    out.println(player1 + ", please enter your guess: ");
+                    player1GuessCount++;
+                }
+                else 
+                {
+                    out.println();
+                    out.println(player2 + ", please enter your guess: ");
+                    player2GuessCount++;
+                }
+                guess = keyboard.nextInt();
+                keyboard.nextLine();
+                guessCount++;
+                
+                if (guess == y)
+                {
+                    if (player(guessCount))
+                    {
+                        out.println("Good Job! You've guessed it, " + player2 + "! My number is indeed " + y + "!");
+                    }
+                    else 
+                    {
+                        out.println("Good Job! You've guessed it, " + player1 + "! My number is indeed " + y + "!");
+                    }
+                    out.println();
+                    out.println("Play again?");
+                    play = keyboard.nextLine();
+                }
+                else if (1 > guess || guess > 100) 
+                {
+                    out.println("I SAAAAAIIIIIID enter a number between 1 and 100. Can't you READ, fool?! Try again, and get it right this time!");
+                    if (player2GuessCount == 5) 
+                    {
+                        gameOver1();
+                        out.println("You've each guessed " + player2GuessCount + " times, but you have failed to guess the number " + y + "!");
+                        gameOver2();
+                        play = keyboard.nextLine();
+                        guess = y;
+                    }
+                }
+                else if (guess > y)
+                {
+                    out.println("Yo' number is tooooo big, sucka! My number is smaller.");
+                    if (player2GuessCount == 5) 
+                    {
+                        gameOver1();
+                        out.println("You've each guessed " + player2GuessCount + " times, but you have failed to guess the number " + y + "!");
+                        gameOver2();
+                        play = keyboard.nextLine();
+                        guess = y;
+                    }
+                }
+                else if (guess < y)
+                {
+                    out.println("Yo' number is tooooo small, pipsqueak! My number is bigger.");
+                    if (player2GuessCount == 5) 
+                    {
+                        gameOver1();
+                        out.println("You've each guessed " + player2GuessCount + " times, but you have failed to guess the number " + y + "!");
+                        gameOver2();
+                        play = keyboard.nextLine();
+                        guess = y;
+                    }
+                }
+            }
+        }
+        if (play.equals("no"))
+        {
+            out.println();
+            out.println();
+            out.println("Bye, Felicia!");
+        }
+        else 
+        {
+            out.println();
+            out.println("WRONG!");
+            out.println("Close this program, and go work on your reading comprehension skillz, instead of playing games you clearly don't understand.");
+        }
+    }
+}
