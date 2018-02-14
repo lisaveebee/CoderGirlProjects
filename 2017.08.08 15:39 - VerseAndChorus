@@ -1,0 +1,38 @@
+import static java.lang.System.out;
+
+public class VerseAndChorus
+{
+        /**
+     * An example of a method - replace this comment with your own
+     *
+     * @param  y  a sample parameter for a method
+     * @return    the sum of x and y
+     */
+    public static void thisOldManChorus()
+    {
+        out.println("With a knick-knack paddywhack,");
+        out.println("Give the dog a bone,");
+        out.println("This old man came rolling home.\n");
+    }
+    public static void main(String[] args)
+    {
+        out.println("This old man, he played one.");
+        out.println("He played knick-knack on my thumb;");
+        thisOldManChorus();
+        out.println("This old man, he played two.");
+        out.println("He played knick-knack on my shoe;");
+        thisOldManChorus();
+        out.println("This old man, he played three.");
+        out.println("He played knick-knack on my knee;");
+        thisOldManChorus();
+        out.println("This old man, he played four.");
+        out.println("He played knick-knack on my door;");
+        thisOldManChorus();
+        out.println("This old man, he played five.");
+        out.println("He played knick-knack on my hive;");
+        thisOldManChorus();
+        out.println("This old man, he played six.");
+        out.println("He played knick-knack on my sticks;");
+        thisOldManChorus();
+    }
+}
