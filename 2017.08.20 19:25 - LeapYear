@@ -1,0 +1,67 @@
+import static java.lang.System.out;
+
+public class LeapYear
+{
+    // public static boolean isLeapYear(int y)
+    // {
+        // return true;
+    // }
+    public static boolean isLeapYear(int y)
+    {
+        if (y % 4 == 0)
+        {
+            if (y % 100 != 0) 
+            {
+                return true;
+            }
+            else if (y % 400 == 0) 
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args)
+    {
+        // out.println("Testing functions.");
+        // int testFailures = 0;
+        
+        // if (isLeapYear(1600) == true){out.println("success");}
+        // if (isLeapYear(2000) == true){out.println("success");}
+        // if (isLeapYear(2400) == true){out.println("success");}
+        // if (isLeapYear(1988) == true){out.println("success");}
+        // if (isLeapYear(1996) == true){out.println("success");}
+        // if (isLeapYear(2004) == true){out.println("success");}
+        // if (isLeapYear(4000) == true){out.println("success");}
+        
+        // if (isLeapYear(1800) == true){out.println("test failed"); testFailures++;}
+        // else {out.println("success");}
+        // if (isLeapYear(1900) == true){out.println("test failed"); testFailures++;}
+        // else {out.println("success");}
+        // if (isLeapYear(2200) == true){out.println("test failed"); testFailures++;}
+        // else {out.println("success");}
+        // if (isLeapYear(1987) == true){out.println("test failed"); testFailures++;}
+        // else {out.println("success");}
+        // if (isLeapYear(1999) == true){out.println("test failed"); testFailures++;}
+        // else {out.println("success");}
+        // if (isLeapYear(2006) == true){out.println("test failed"); testFailures++;}
+        // else {out.println("success");}
+        
+        // out.println("There were " + testFailures + " test failures.");
+        
+        out.println(isLeapYear(1600));
+        out.println(isLeapYear(2000));
+        out.println(isLeapYear(2400));
+        out.println(isLeapYear(1988));
+        out.println(isLeapYear(1996));
+        out.println(isLeapYear(2004));
+        out.println(isLeapYear(4000));
+        
+        out.println(isLeapYear(1800));
+        out.println(isLeapYear(1900));
+        out.println(isLeapYear(2200));
+        out.println(isLeapYear(1987));
+        out.println(isLeapYear(1999));
+        out.println(isLeapYear(2006));
+    }
+}
