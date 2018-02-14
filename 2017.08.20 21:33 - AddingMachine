@@ -1,0 +1,24 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class AddingMachine
+{
+    public static void main(String[] args)
+    {
+        out.println("Welcome to Adding Machine!");
+        float total = 0;
+        float input = -1;
+        int repeats = 0;
+        Scanner keyboard = new Scanner(System.in);
+        while (input != 0)
+        {
+            out.println("Total: " + total);
+            out.println();
+            out.print("Add: ");
+            input = keyboard.nextFloat();
+            total = input + total;
+            repeats++;
+        }
+        out.println("You entered " + repeats + " numbers, for a final total of " + total);
+    }
+}
