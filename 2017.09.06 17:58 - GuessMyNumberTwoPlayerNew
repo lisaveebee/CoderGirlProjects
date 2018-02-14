@@ -1,0 +1,486 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+import java.util.Random;
+public class GuessMyNumberTwoPlayer
+{ 
+    public static boolean player(int x)
+    {
+        if (x % 2 == 0){return true;} //player1
+        else {return false;}//player2
+    }
+
+    public static void enterGuess(String x)
+    {
+        out.println();
+        out.println(x + ", please enter your guess: ");
+    }
+
+    public static void gameOver(int x)
+    //x==z (random number used to determine response)
+    //y==player2GuessCount
+    //z==y (number they're trying to guess)
+    {
+        out.println();
+        out.println("GAME OVER!");
+        out.println();
+        if (x<=10) 
+        {
+            out.println("Your mother was a hamster and your father smelt of elderberries!!");                
+        }
+        else if (x>=11 && x<=20)
+        {
+            out.println("You have been defeated. All your base are belong to us.");
+        }
+        else if (x>=21 && x<=30)
+        {
+            out.println("Now go away, or I shall taunt you a second time!");
+        }
+        else if (x>=31 && x<=40)
+        {
+            out.println("You lose.\nKthxbai");
+        }
+        else if (x>=41 && x<=50)
+        {
+            out.println("Clearly this isn't your forte. Why don't you try something easier,");
+            out.println("like underwater basketweaving?");
+        }
+        else if (x>=51 && x<=60)
+        {
+            out.println("Our sentient circus peanut in chief says you're fired.");
+        }
+        else if (x>=61 && x<=70)
+        {
+            out.println("Adolf Twitler just tweeted at you. He said your guesses will never");
+            out.println("be as good as his.");
+        }
+        else if (x>=71 && x<=80) 
+        {
+            out.println("You've failed to prove yourself an equal to my intellectual prowess.");
+            out.println("Try again...if you dare.");
+        }
+        else if (x>=81 && x<=90)
+        {
+            out.println("You may not be able to win this game, but you can still be president.");
+        }
+    }
+
+    public static void gameOver2(int y, int z)
+    //y==player2GuessCount
+    //z==y
+    {
+        out.println();
+        out.println("You've each guessed " + y + " times, but you have failed to guess the number " + z + "!");
+    }
+
+    public static void responsesGuessHigher(int x, int y)
+    //x==z (random number used to determine response)
+    //y==player2GuessCount
+    {
+        if (x<=10)
+        {
+            out.println("You have failed to guess my number. SAD!");
+            if (y<5)
+            {
+                out.println("Guess a higher number!");
+            }
+        }
+        else if (x>=11 && x<=20)
+        {
+            out.println("Donny, you're outta your element!");
+            if (y<5)
+            {
+                out.println("Guess a higher number!");
+            }
+        }
+        else if (x>=21 && x<=30)
+        {
+            out.println("ERMAGERD!!! Rerng nermber!");
+            if (y<5)
+            {
+                out.println("Gurss hurer.");
+            }
+        }
+        else if (x>=31 && x<=40)
+        {
+            out.println("OMG! You guessed it! The wrong number!");
+            if (y<5)
+            {
+                out.println("Congratulations, you have to guess again!");
+                out.println("Think big next time, k?.");
+            }
+        }
+        else if (x>=41 && x<=50)
+        {
+            out.println("Dude, you like...totally picked the wrong number, man.");
+            if (y<5)
+            {
+                out.println("How bout aiming a little HIGHer.");
+            }
+        }
+        else if (x>=51 && x<=60)
+        {
+            out.println("Nahhh. That ain't my number, homes!");
+            if (y<5)
+            {
+                out.println("Yo' number is tooooo small, pipsqueak! My number is bigger.");
+            }
+        }
+        else if (x>=61 && x<=70)
+        {
+            out.println("Your number is terrible. It's the worst number anyone has ever seen.");
+            if (y<5)
+            {
+                out.println("The number you've guessed is too small. My number is more bigly.");
+                out.println("It's the best number there ever was. Everyone says so.");
+            }
+        }
+        else if (x>=71 && x<=80) 
+        {
+            out.println("You really don't know what my number is?! Jeeze!");
+            if (y<5)
+            {
+                out.println("You're killin me smalls!! Guess bigger! Like the Big Bambino!");
+            }
+        }
+        else if (x>=81 && x<=90)
+        {
+            out.println("Keep trying. You gotta learn stuff through denial and error.");
+            if (y<5)
+            {
+                out.println("Your guess is too friggin' small.");
+            }
+        }
+    }
+
+    public static void responsesGuessLower(int x, int y)
+    //x==z (random number used to determine response)
+    //y==player2GuessCount
+    {
+        if (x<=10)
+        {
+            out.println("Wow, what a big human with such a big number! Too bad it's wrong!");
+            if (y<5)
+            {
+                out.println("Try something a little smaller next time.");
+            }
+        }
+        else if (x>=11 && x<=20)
+        {
+            out.println("Don't you have anything better to do than guess all these big numbers?");
+            if (y<5)
+            {
+                out.println("Think smaller.");
+            }
+        }
+        else if (x>=21 && x<=30)
+        {
+            out.println("I'd tell you this was right, but I'd be lying.");
+            if (y<5)
+            {
+                out.println("Try a smaller number.");
+            }
+        }
+        else if (x>=31 && x<=40)
+        {
+            out.println("Neener neener neener! I know the number and youuuuu doooooon't!!!");
+            if (y<5)
+            {
+                out.println("Guess a smaller number if you want to win.");
+            }
+        }
+        else if (x>=41 && x<=50)
+        {
+            out.println("Wrong you are.");
+            if (y<5)
+            {
+                out.println("Guess lower you should.");
+            }
+        }
+        else if (x>=51 && x<=60)
+        {
+            out.println("Nahhh. That ain't my number.");
+            if (y<5)
+            {
+                out.println("Yo' number is tooooo big, sucka! My number is smaller.");
+            }
+        }
+        else if (x>=61 && x<=70)
+        {
+            out.println("If guessing wrong numbers was cool, we'd call you Miles Davis.");
+            if (y<5)
+            {
+                out.println("Try a little lower, darlin'.");
+            }
+        }
+        else if (x>=71 && x<=80) 
+        {
+            out.println("This game is pretty simple. It doesn't take rocket appliances to figure it out.");
+            if (y<5)
+            {
+                out.println("Guess lower.");
+            }
+        }
+        else if (x>=81 && x<=90)
+        {
+            out.println("No. You're wrong! You're SO wrong. Your guess is not right.");
+            if (y<5)
+            {
+                out.println("The number you guessed is too small. It's not big enough. Are you getting");
+                out.println("the picture I'm painting here?! Guess again, pal!");
+            }
+        }
+    }
+
+    public static void isGuessRight(int a, int b, int c, String d, String e, int f, int g)
+    //a==guess (player's input)
+    //b==y (number they're trying to guess)
+    //c==guessCount (overall guess count)
+    //d==player2 (player 2's name)
+    //e==player1 (player 1's name)
+    //f==z (random number used to determine response)
+    //g==player2GuessCount
+    //isGuessRight(guess, y, guessCount, player2, player1, z, player2GuessCount);
+    {
+        if (a == b)
+        {
+            out.println("A winner is you!");
+            out.println();
+            if (player(c))
+            {
+                out.println("Good Job! You've guessed it, " + d + "! My number is indeed " + b + "!");
+            }
+            else
+            {
+                out.println("Good Job! You've guessed it, " + e + "! My number is indeed " + b + "!");
+            }
+        }
+        else if (a > b)
+        {
+            responsesGuessLower(f,g);
+            if (g == 5)
+            {
+                gameOver(f);
+            }
+        }
+        else if (a < b)
+        {
+            responsesGuessHigher(f,g);
+            if (g == 5)
+            {
+                gameOver(f);
+            }
+        }
+    }
+
+    public static boolean isGuessRight(int a, int b)
+    //a==guess (player's input)
+    //b==y (number they're trying to guess)
+    //isGuessRight(guess, y);
+    {
+        if (a == b)
+        {
+            return true;
+        }
+        else if (a > b)
+        {
+            return false;
+        }
+        else if (a < b)
+        {
+            return false;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        int guess = 0;
+        int turns = 0;
+        Random x = new Random(System.currentTimeMillis()); //number to which guesses are compared
+        Random t = new Random(System.currentTimeMillis()); //determines response
+        out.println("Would you like to play a game? (Enter yes or no)");
+        String play = keyboard.nextLine();
+        String same = "no";
+        String player1=null;
+        String player2=null;
+        while (play.equals("yes"))
+        {
+            if (same.equals("no"))
+            {
+                out.println();
+                out.println("What is player 1's name?");
+                player1 = keyboard.nextLine();
+                out.println("What is player 2's name?");
+                player2 = keyboard.nextLine();
+            }
+            out.println();
+            out.println("I'm thinking of a number between 1 and 100. What do you think it is?");
+            int y = x.nextInt(100);
+            int guessCount = 0;
+            int player1GuessCount = 0;
+            int player2GuessCount = 0;
+            while (guess != y) 
+            {
+                int z = t.nextInt(90);
+                if (player(guessCount))
+                {
+                    out.println();
+                    out.println(player1 + ", please enter your guess: ");
+                    player1GuessCount++;
+                }
+                else 
+                {
+                    out.println();
+                    out.println(player2 + ", please enter your guess: ");
+                    player2GuessCount++;
+                }
+                guess = keyboard.nextInt();//first chance
+                keyboard.nextLine(); 
+                if (1 > guess || guess > 100) //if guess is out of bounds
+                {
+                    out.println();
+                    out.println("I SAAAAAIIIIIID enter a number between 1 and 100. Can't");
+                    out.println("you READ, fool?! Try again, and get it right this time!");
+                    out.println();
+                    out.println("Please, try again.");
+                    guess = keyboard.nextInt(); //second chance
+                    keyboard.nextLine();
+                    if (1>guess || guess>100)
+                    {
+                        out.println();
+                        out.println("Can't you read?!");
+                        out.println("A number between 1 and 100 means no less than 1 and no more than 100.");
+                        out.println("Duuuuuh!");
+                        out.println();
+                        out.println("Let's try this again.");
+                        out.println("Pick a number between 1 and 100.");
+                        guess = keyboard.nextInt(); //3rd chance
+                        keyboard.nextLine();
+                        if (1>guess || guess>100)
+                        {
+                            out.println();
+                            out.println("Clearly, you do not understand numbers.");
+                            out.println("Maybe you should go back to grade school...");
+                            out.println();
+                            out.println();
+                            out.println("Would you like to try playing again?");
+                            out.println();
+                            out.println("NOTE: If you haven't refreshed your basic understanding of numbers,");
+                            out.println("you should probably answer \"no.\"");
+                            play = keyboard.nextLine();
+                            guess = y;
+                        }
+                        else if (1<=guess && guess<=100)
+                        {
+                            guessCount++;
+                            isGuessRight(guess, y, guessCount, player2, player1, z, player2GuessCount);
+                            if (isGuessRight(guess, y))
+                            {
+                                out.println();
+                                out.println("Play again?");
+                                play = keyboard.nextLine();
+                                if (play.equals("yes"))
+                                {
+                                    out.println("Will the same two players be playing?");
+                                    same = keyboard.nextLine();
+                                }
+                                guess = y;
+
+                            }
+                            else if (!isGuessRight(guess, y) && player2GuessCount==5)
+                            {
+                                gameOver2(player2GuessCount, y);
+                                out.println();
+                                out.println("Play again?");
+                                play = keyboard.nextLine();
+                                if (play.equals("yes"))
+                                {
+                                    out.println("Will the same two players be playing?");
+                                    same = keyboard.nextLine();
+                                }
+                                guess = y;
+                            }
+                        }
+                    }
+                    else if (1<=guess && guess<=100)
+                    {
+                        guessCount++;
+                        isGuessRight(guess, y, guessCount, player2, player1, z, player2GuessCount);
+                        if (isGuessRight(guess, y))
+                        {
+                            out.println();
+                            out.println("Play again?");
+                            play = keyboard.nextLine();
+                            if (play.equals("yes"))
+                            {
+                                out.println("Will the same two players be playing?");
+                                same = keyboard.nextLine();
+                            }
+                            guess = y;
+                        }
+                        else if (!isGuessRight(guess, y) && player2GuessCount==5)
+                        {
+                            gameOver2(player2GuessCount, y);
+                            out.println();
+                            out.println("Play again?");
+                            play = keyboard.nextLine();
+                            if (play.equals("yes"))
+                            {
+                                out.println("Will the same two players be playing?");
+                                same = keyboard.nextLine();
+                            }
+                            guess = y;
+                        }
+                    }
+                }
+                else if (1<=guess && guess<=100)
+                {
+                    guessCount++;
+                    isGuessRight(guess, y, guessCount, player2, player1, z, player2GuessCount);
+                    if (isGuessRight(guess, y))
+                    {
+                        out.println();
+                        out.println("Play again?");
+                        play = keyboard.nextLine();
+                        if (play.equals("yes"))
+                        {
+                            out.println("Will the same two players be playing?");
+                            same = keyboard.nextLine();
+                        }
+                        guess = y;
+                    }
+                    else if (!isGuessRight(guess, y) && player2GuessCount==5)
+                    {
+                        gameOver2(player2GuessCount, y);
+                        out.println();
+                        out.println("Play again?");
+                        play = keyboard.nextLine();
+                        if (play.equals("yes"))
+                        {
+                            out.println("Will the same two players be playing?");
+                            same = keyboard.nextLine();
+                        }
+                        guess = y;
+                    }
+                }
+            }
+        }
+        if (play.equals("no"))
+        {
+            out.println();
+            out.println();
+            out.println("Bye, Felicia!");
+        }
+        else 
+        {
+            out.println();
+            out.println("WRONG!");
+            out.println("Close this program, and go work on your reading comprehension");
+            out.println("skillz, instead of playing games you clearly don't understand.");
+        }
+    }
+}
