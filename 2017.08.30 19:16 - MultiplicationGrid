@@ -1,0 +1,33 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class MultiplicationGrid
+{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        out.println("Welcome to Multiplication Tables!");
+        out.println();
+        out.println("To what number would you like the Multiplication Table displayed? (Enter a number no larger than 20.)");
+        int n = keyboard.nextInt();
+        if (n <=20)
+        {
+            out.print("    ");
+            for (int x = 0; x<=n; x++)
+            {
+                out.printf("%4d", x);
+            }
+            out.println();
+            for (int y = 0; y<=n; y++)
+            {
+                out.printf("%4d", y);
+                for (int z = 0; z<=n; z++)
+                {
+                    out.printf("%4d",y*z);
+                }
+                out.println();
+            }
+        }
+        else {out.println("Invalid entry.");}
+    }
+}
