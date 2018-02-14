@@ -1,0 +1,21 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class ForLoops2
+{
+    public static void main(String[] args) 
+    {
+        Scanner keyboard = new Scanner(System.in);
+        out.println("Welcome to Bar Chart!");
+        out.println();
+        out.print("Please enter a number: ");
+        int input = keyboard.nextInt();
+        for (int counter = 1; counter < input; counter++)
+        {
+            out.print("#");
+        }
+        out.println();
+        out.println();
+        out.println("Have a great day!");
+    }
+}
