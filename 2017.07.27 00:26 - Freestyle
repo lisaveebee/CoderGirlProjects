@@ -1,0 +1,74 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class Freestyle
+{
+        public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        out.println("It's nearing closing time at the bank, and as a teller, you need to balance your drawer.");
+        out.println("The computer says that your drawer should contain $18,962.45\n.");
+        out.println("How many 100 dollar bills do you have?");
+        int hundreds = keyboard.nextInt();
+        int hundredTtl = 100 * hundreds;
+        out.println("You have $" + hundredTtl + " in 100 dollar bills.\n");
+        out.println("How many 50 dollar bills do you have?");
+        int fifties = keyboard.nextInt();
+        int fiftiesTtl = 50 * fifties;
+        out.println("You have $" + fiftiesTtl + " in 50 dollar bills.\n");
+        out.println("How many 20 dollar bills do you have?");
+        int twenties = keyboard.nextInt();
+        int twentiesTtl = 20 * twenties;
+        out.println("You have $" + twentiesTtl + " in 20 dollar bills.\n");
+        out.println("How many 10 dollar bills do you have?");
+        int tens = keyboard.nextInt();
+        int tensTtl = 10 * tens;
+        out.println("You have $" + tensTtl + " in 10 dollar bills.\n");
+        out.println("How many 5 dollar bills do you have?");
+        int fives = keyboard.nextInt();
+        int fivesTtl = 5 * fives;
+        out.println("You have $" + fivesTtl + " in 5 dollar bills.\n");
+        out.println("How many 2 dollar bills do you have?");
+        int twos = keyboard.nextInt();
+        int twosTtl = 2 * twos;
+        out.println("You have $" + twosTtl + " in 2 dollar bills.\n");
+        out.println("How many 1 dollar bills do you have?");
+        int ones = keyboard.nextInt();
+        int onesTtl = 1 * ones;
+        out.println("You have $" + onesTtl + " in 1 dollar bills.\n");
+        out.println("How many 1 dollar coins do you have?");
+        int dollarCoins = keyboard.nextInt();
+        int dollarCoinsTtl = 1 * dollarCoins;
+        out.println("You have $" + dollarCoinsTtl + " in 1 dollar coins.\n");
+        out.println("How many 50 cent pieces do you have?");
+        int fiftyCent = keyboard.nextInt();
+        float fiftyCentTtl = .5f * fiftyCent;
+        out.println("You have $" + fiftyCentTtl + " in 50 cent pieces.\n");
+        out.println("How many quarters do you have?");
+        int quarters = keyboard.nextInt();
+        float quartersTtl = .25f * quarters;
+        out.println("You have $" + quartersTtl + " in quarters.\n");
+        out.println("How many dimes do you have?");
+        int dimes = keyboard.nextInt();
+        float dimesTtl = .10f * dimes;
+        out.println("You have $" + dimesTtl + " in dimes.\n");
+        out.println("How many nickels do you have?");
+        int nickels = keyboard.nextInt();
+        float nickelsTtl = .05f * nickels;
+        out.println("You have $" + nickelsTtl + " in nickels.\n");
+        out.println("How many pennies do you have?");
+        int pennies = keyboard.nextInt();
+        float penniesTtl = .01f * pennies;
+        out.println("You have $" + penniesTtl + " in pennies.\n");
+        float countTotal = hundredTtl + fiftiesTtl + twentiesTtl + tensTtl + fivesTtl + twosTtl + onesTtl + dollarCoinsTtl + fiftyCentTtl + quartersTtl + dimesTtl + nickelsTtl + penniesTtl;
+        out.println("You have " + countTotal + " in your drawer.");
+        float offBalance = 18962.45f - countTotal;
+        if (offBalance == 0) {
+            out.println("Congratulations! You're in balance! You can log off, lock up your drawer, and go home for the evening!");
+        }
+        else {
+            out.println("Your drawer is out of balance by " + offBalance + ".");
+            out.println("Please recount your drawer and try again.");
+        }
+    }
+}
