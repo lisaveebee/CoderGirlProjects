@@ -1,0 +1,28 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class TreasureChest
+{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        out.println("Pirate Lady Ching wants to build some locking treasure chests.");
+        out.println("The chests are a standard size to fit in the ship's cargo area.");
+        out.println("Every chest requires 9 boards.\n");
+        int boardsPerChest = 9;
+        out.println("What is today's price for boards, in silver pieces?");
+        int silverPiecesPerBoard = keyboard.nextInt();
+        int costForBoards = silverPiecesPerBoard * boardsPerChest;
+        out.println("The cost per chest is " + costForBoards + " silver pieces for boards.\n");
+        out.println("Each chest also requires lock hardware.");
+        out.println("What is today's price for locks, in silver pieces?");
+        int costPerLock = keyboard.nextInt();
+        int totalChestCost = costForBoards + costPerLock;
+        out.println("How many silver pieces does Lady Ching wish to invest in building chests?");
+        int investment = keyboard.nextInt();
+        int numChests = investment / totalChestCost;
+        out.println("\nThat will pay for the creation of " + numChests + " chests.");
+        int leftOverSilver = investment % totalChestCost;
+        out.println("Left over silver pieces: " + leftOverSilver);
+    }
+}
