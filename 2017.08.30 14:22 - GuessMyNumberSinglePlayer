@@ -1,0 +1,51 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+import java.util.Random;
+public class GuessMyNumberSinglePlayer
+{ 
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        int input = 0;
+        Random x = new Random(100);
+        out.println("Would you like to play a game? (Enter yes or no)");
+        String play = keyboard.nextLine();
+        if (play.equals("yes"))
+        {
+            out.println("I'm thinking of a number between 1 and 100. What is it?");
+        }
+        else {}
+        while (play.equals("yes"))
+        {
+            int y = x.nextInt(100);
+            while (input != y) 
+            {
+                out.println("Guess: ");
+                input = keyboard.nextInt();
+                keyboard.nextLine();
+                if (input == y)
+                {
+                    out.println("Good Job! You've guessed it, genius! My number is indeed " + y + "!");
+                    out.println("Play again?");
+                    play = keyboard.nextLine();
+                    if (play.equals("yes"))
+                    {
+                        out.println("I'm thinking of a number between 1 and 100. What is it?");
+                    }
+                }
+                else if (1 > input || input > 100) 
+                {
+                    out.println("I SAAAAAIIIIIID enter a number between 1 and 100. Can't you READ, fool?! Try again, and get it right this time!");
+                }
+                else if (input > y)
+                {
+                    out.println("Yo' number is tooooo big, sucka! My number is smaller.");
+                }
+                else if (input < y)
+                {
+                    out.println("Yo' number is tooooo small, pipsqueak! My number is bigger.");
+                }
+            }
+        }
+    }
+}
