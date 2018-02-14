@@ -1,0 +1,42 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+public class ValidatingInputs
+{
+    public static int getIntegerBetween(int x, int y)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Please enter a number between " + x + " & " + y + ".");
+        int firstNumber;
+        do
+        {
+            firstNumber = keyboard.nextInt();
+            if (firstNumber<x || firstNumber>y)
+            {
+                System.out.println("Error, invalid number. Try again.");
+            }
+        } while (firstNumber<x||firstNumber>y);
+        return firstNumber;
+    }
+    public static int getTensInteger(int x, int y)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        System.out.println("Please enter a number between " + x + " & " + y + ".");
+        int secondNumber;
+        do
+        {
+            secondNumber = keyboard.nextInt();
+            if ((secondNumber<x|| secondNumber>y) && secondNumber % 10 == 0)
+            {
+                System.out.println("Error, invalid number. Try again.");
+            }
+        } while (secondNumber<x||secondNumber>y);
+        return secondNumber;
+    }
+    public static void main(String[] args)
+    {
+        int firstNumber = getIntegerBetween(1,10);
+        int secondNumber = getTensInteger(200,3000);
+        out.println("You entered " + firstNumber + " and " + secondNumber + ".");
+        
+    }
+}
