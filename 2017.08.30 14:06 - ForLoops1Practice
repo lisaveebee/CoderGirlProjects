@@ -1,0 +1,21 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class ForLoops1
+{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner(System.in);
+        out.print("To what number should I count?");
+        int input = keyboard.nextInt();
+        for (int counter = 1; counter<=input; counter++)
+        {
+            out.print(counter + " ");
+        }
+        out.println();
+        for (int counter = input; counter>0; counter--)
+        {
+            out.print(counter + " ");
+        }
+    }
+}
