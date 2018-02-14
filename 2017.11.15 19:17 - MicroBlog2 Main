@@ -1,0 +1,179 @@
+import java.util.Scanner;
+import static java.lang.System.out;
+
+    public class MicroBlogMain
+    {
+        private static Scanner keyboard = new Scanner(System.in);
+        private static User[] users = new User[20];
+        private static Post[] posts = new Post[20];
+        private static int iU = 0;
+        private static int iP = 0;
+        private static User currentUser = users[iU];
+
+        private static void printMenu()
+        {
+            out.println();
+            out.println("Main Menu");
+            out.println("1) Create a new user");
+            out.println("2) Log into existing user profile");
+            out.println("3) Create a post as the current user");
+            out.println("4) Print all posts");
+            out.println("5) Print all users");
+            out.println("6) Exit");
+        }
+
+        private static User createUser()
+        {
+            out.println("What is your name? (Please enter your name on one line in the following format: FirstName LastName");
+            String firstName = keyboard.next();
+            String lastName = keyboard.nextLine();
+            out.println("What is the URL of your avatar?");
+            String avatarURL = keyboard.nextLine();
+            out.println("What would you like to use as your Screen Name?");
+            String screenName = keyboard.nextLine();
+            out.println("What is your email address?");
+            String email = keyboard.nextLine();
+            User user = new User(avatarURL, screenName, firstName, lastName, email);
+            users[iU] = user;
+            iU++;
+            out.println("Your User Number is " + user.getUserNum() + ". Please keep keep this information handy.");
+            out.println();
+            return user;
+        }
+
+        private static void createPost(User x)
+        {
+            out.println("If you would like to link a website, please enter it here. If not, please enter n/a.");
+            String website = keyboard.nextLine();
+            out.println("Please enter your post.");
+            String postBody = keyboard.nextLine();
+            Post newPost = new Post(x, postBody, website);
+            posts[iP] = newPost;
+            iP++;
+        }
+
+        private static void noUsersYet()
+        {
+            out.println("There are no users in the database. Please create a user, first.");
+        }
+
+        private static void printPost(int x)
+        {
+            out.println();
+            out.println("Post Num: " + x);
+            out.println("Avatar:   " + posts[x].getUser().getAvatar());
+            out.println("Username: " + posts[x].getUser().getUsername());
+            if (!posts[x].getWebsite().equals("n/a"))
+            {
+                out.println("Website:  " + posts[x].getWebsite());
+            }
+            out.println("----------");
+            out.println(posts[x].getPostBody());
+            out.println();
+        }
+
+        public static void main(String[] args)
+        {
+            boolean exit = false;
+            while (!exit)
+            {
+                printMenu();
+                if (iU==0)
+                {
+                    out.println("You are not logged in.");
+                    noUsersYet();
+                }
+                else
+                {
+                    out.println("You are currently logged in as " + currentUser.getUsername() + ". Please enter the number that corresponds to the action you would like to take.");
+                }
+                int input = keyboard.nextInt();
+                keyboard.nextLine();
+
+                while (iU==0 && input !=1)
+                {
+                    noUsersYet();
+                    input = keyboard.nextInt();
+                    keyboard.nextLine();
+                }
+
+                switch (input)
+                {
+                    case 1:
+                        currentUser = createUser();
+                        break;
+
+                    case 2:
+                        for (int x=0;x<iU;x++)
+                        {
+                            out.println("User #" +x+ ": " +users[x].getUsername() + " (" +users[x].getFirstName()+ " " +users[x].getLastName()+ ")");
+                        }
+                        out.println("Please enter your user number.");
+                        currentUser = users[keyboard.nextInt()];
+                        keyboard.nextLine();
+                        break;
+
+                    case 3:
+                        int currentUserLastPostNum = -1;
+                        for (int x=0;x<iP;x++)
+                        {
+                            if (posts[x].getUser().getUserNum() == currentUser.getUserNum())
+                            {
+                                currentUserLastPostNum = posts[x].getPostNum();
+                            }
+                        }
+
+                        if (currentUserLastPostNum > -1)
+                        {
+                            out.println("----------Your Most Recent Post----------");
+                            printPost(currentUserLastPostNum);
+                        }
+                        createPost(currentUser);
+                        break;
+
+                    case 4:
+                        out.println("Now printing all " +iP+ " posts from all " +iU+ " users...");
+                        out.println();
+                        for (int x=0;x<iP;x++)
+                        {
+                            out.println("--------------------------------------------------");
+                            printPost(x);
+                        }
+                        out.println("--------------------------------------------------");
+                        out.println();
+                        out.println("Fin.");
+                        out.println();
+                        break;
+
+                    case 5:
+                        out.println("Now printing all " + iU + " users...");
+                        //this works because iU would be 2 if I hadn't put a iU++ after it to account for the next usernumber,
+                        //when there's an entry for 0,1, and 2, meaning there are 3 users, but right after it uses iU, it adds one, which means it will show the correct number here, when printing.
+                        out.println();
+                        for (int x=0;x<iU;x++)
+                        {
+                            out.println("--------------------------------------------------");
+                            out.println();
+                            out.println("User Number: " + users[x].getUserNum());
+                            out.println("Username:    " + users[x].getUsername());
+                            out.println("Given Name:  " + users[x].getFirstName() + " " + users[x].getLastName());
+                            out.println("Avatar URL:  " + users[x].getAvatar());
+                            out.println("Email:       " + users[x].getEmail());
+                        }
+                        out.println("--------------------------------------------------");
+                        out.println();
+                        out.println("Fin.");
+                        break;
+
+                    case 6:
+                        exit = true;
+                        break;
+
+                    default:
+                        exit = true;
+                        break;
+                }
+            }
+
+        }
+    }
