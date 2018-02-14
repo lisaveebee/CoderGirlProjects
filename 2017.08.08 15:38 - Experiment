@@ -1,0 +1,95 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+
+public class Experiment
+{
+    public static void main(String[] args) 
+    {
+        double mySmallNumber = 0.12345678901234567890123456789;
+        out.println("My number is " + mySmallNumber);
+        
+        out.println("");
+        out.println("next program");
+        long myBigNumber = 999999999;
+        out.println("My number is " + myBigNumber);
+        
+        out.println("");
+        out.println("next program");
+        out.println("4 times 3 is " + (4 * 3));
+        // 9 zeros
+        int bigA = 1000000000;
+        int bigB = 1000000000;
+        out.println("What is bigA times bigB? ");
+        out.println(bigA * bigB);
+        
+        out.println("");
+        out.println("next program");
+        int appleCount = 3;
+        out.println("I have " + appleCount + " apples.");
+        appleCount = appleCount - 1;
+        out.println("Now I have " + appleCount + " apples.");
+        appleCount = appleCount - 1;
+        out.println("Now I have " + appleCount + " apples.");
+        appleCount = appleCount - 1;
+        out.println("Now I have " + appleCount + " apples.");
+        appleCount = appleCount - 1;
+        out.println("Now I have " + appleCount + " apples.");
+        appleCount = appleCount - 1;
+        out.println("Now I have " + appleCount + " apples.");
+        appleCount = appleCount - 1;
+        out.println("Now I have " + appleCount + " apples.");
+        
+        out.println("");
+        out.println("next program");
+        appleCount = 4;
+        out.println("I have " + appleCount + " apples.");
+        int oranges = 8;
+        out.println("I have " + oranges + " oranges.");
+        int strawberries = 12;
+        out.println("I have " + strawberries + " strawberries.");
+        int pineapple = 3;
+        out.println("I have " + pineapple + " pineapples.");
+        out.println("I have " + (oranges + pineapple) + " tropical fruits.");
+        
+        out.println("");
+        out.println("next program");
+        //int a = (int) true;
+        //float b = (float) false;
+        //String s = (String) 'x';
+        //out.println(a);
+        //out.println(b);
+        //out.println(s);
+        
+        out.println("");
+        out.println("next program");
+        int letterx = (int) 'x';
+        char someletter = (char) 95;
+        out.println(letterx);
+        out.println(someletter);
+
+        out.println("");
+        out.println("next program");
+        int letter1 = (int) 'a';
+        int letter2 = (int) 'b';
+        int letter3 = (int) 'c';
+        int letter4 = (int) 'd';
+        int letter26 = (int) 'z';
+        int cap1 = 'A';
+        int cap2 = 'B';
+        int cap3 = 'C';
+        out.println(letter1 + " " + letter2 + " " + letter3 + " " + letter4 + " " + letter26);
+        out.println(cap1 + " " + cap2 + " " + cap3);
+
+        out.println("");
+        out.println("next program");
+        boolean first = true;
+        boolean second = false;
+        //int firstAsInt = (int) first;
+        //int secondAsInt = (int) second;
+        //out.println(firstAsInt);
+        //out.println(secondAsInt);
+        out.println("");
+	out.println("next program");
+
+    }
+}
