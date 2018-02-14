@@ -1,0 +1,109 @@
+package MicroBlog;
+import java.util.Scanner;
+import static java.lang.System.out;
+
+public class MessageBoard
+{
+    static Scanner keyboard = new Scanner(System.in);
+    static char toPostOrNotToPost = 'n';
+    private static User[] users = new User[20];
+    private static Post[] posts = new Post[20];
+    static int iU = 0;
+    static int iP = 0;
+    static char userNumStatus = 'n';
+    static int userNum = 0;
+    public static void main(String[] args)
+    {
+        out.println("What is your name? (Please enter your name on one line in the following format: FirstName LastName");
+        String firstName = keyboard.next();
+        String lastName = keyboard.nextLine();
+        out.println("What is the URL of your avatar?");
+        String avatarURL = keyboard.nextLine();
+        out.println("What would you like to use as your Screen Name?");
+        String screenName = keyboard.nextLine();
+        out.println("What is your email address?");
+        String email = keyboard.nextLine();
+        User user = new User(avatarURL, screenName, firstName, lastName, email);
+        users[iU] = user;
+        iU++;
+        userNum = user.getUserNum();
+        out.println("Your User Number is " + userNum + ". Please keep keep this information handy.");
+        out.println();
+        do
+        {
+            out.println("If you would like to link a website, please enter it here. If not, please enter n/a.");
+            String website = keyboard.nextLine();
+            out.println("Please enter your post.");
+            String postBody = keyboard.nextLine();
+            Post newPost = new Post(user, postBody, website);
+            posts[iP] = newPost;
+            iP++;
+            out.println("Would you like to make another post?");
+            toPostOrNotToPost= keyboard.next().charAt(0);
+            if (toPostOrNotToPost == 'y')
+            {
+                out.println("Do you have a user number?");
+                userNumStatus = keyboard.next().charAt(0);
+                if (userNumStatus == 'y')
+                {
+                    out.println("Please enter your user number.");
+                    userNum = keyboard.nextInt();
+                    keyboard.nextLine();
+                }
+                else
+                {
+                    out.println("What is your name? (Please enter your name on one line in the following format: FirstName LastName");
+                    firstName = keyboard.next();
+                    lastName = keyboard.nextLine();
+                    out.println("What is the URL of your avatar?");
+                    avatarURL = keyboard.nextLine();
+                    out.println("What would you like to use as your Screen Name?");
+                    screenName = keyboard.nextLine();
+                    out.println("What is your email address?");
+                    email = keyboard.nextLine();
+                    user = new User(avatarURL, screenName, firstName, lastName, email);
+                    users[iU] = user;
+                    iU++;
+                    userNum = user.getUserNum();
+                    out.println("Your User Number is " + userNum + ". Please keep keep this information handy.");
+                    out.println();
+                }
+            }
+
+        }while(toPostOrNotToPost=='y');
+        out.println("Now printing all " +iP+ " posts from all " +iU+ " users...");
+        out.println();
+        for (int x=0;x<iP;x++)
+        {
+            out.println("--------------------------------------------------");
+            out.println();
+            out.println("Post Num: " + x);
+            out.println("Avatar:   " + posts[x].getUser().getAvatar());
+            out.println("Username: " + posts[x].getUser().getUsername());
+            out.println("Website:  " + posts[x].getWebsite());
+            out.println("----------");
+            out.println(posts[x].getPostBody());
+            out.println();
+        }
+        out.println("--------------------------------------------------");
+        out.println();
+        out.println();
+        //this works because iU would be 2 if I hadn't put a iU++ after it to account for the next usernumber,
+        //when there's an entry for 0,1, and 2, meaning there are 3 users, but right after it uses iU, it adds one, which means it will show the correct number here, when printing.
+        out.println("Now printing all " + iU + " users..."); 
+        out.println();
+        for (int x=0;x<iU;x++)
+        {
+            out.println("--------------------------------------------------");
+            out.println();
+            out.println("User Number: " + users[x].getUserNum());
+            out.println("Username:    " + users[x].getUsername());
+            out.println("Given Name:  " + users[x].getFirstName() + " " + users[x].getLastName());
+            out.println("Avatar URL:  " + users[x].getAvatar());
+            out.println("Email:       " + users[x].getEmail());
+        }
+        out.println("--------------------------------------------------");
+        out.println();
+        out.println("Fin.");
+    }
+}
