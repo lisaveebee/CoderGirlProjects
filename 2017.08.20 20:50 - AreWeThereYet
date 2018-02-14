@@ -1,0 +1,27 @@
+import static java.lang.System.out;
+import java.util.Scanner;
+public class AreWeThereYet 
+{
+    public static void wrongAnswer()
+    {
+        out.println("Huh? I didn't understand that answer.");
+    }
+    public static boolean yesOrNo(String answer)
+    {
+        if (answer.equals("no")){return true;}
+        else {return false;}
+    }
+    public static void main(String[] args)
+    {
+        boolean keepGoing = true;
+        while (keepGoing)
+        {
+            Scanner keyboard = new Scanner(System.in);
+            out.println("Are we there yet?");
+            String answer = keyboard.next();
+            if (answer.equals("yes") || answer.equals("no")){keepGoing = yesOrNo(answer);}
+            else {wrongAnswer();}
+        }
+        out.println("Yay!");
+    }
+}
